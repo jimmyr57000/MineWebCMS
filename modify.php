@@ -1,8 +1,5 @@
 <?php
 $db = ConnectionManager::getDataSource('default');
-// 1.8.0
-add_column('users', 'uuid', 'varchar(255) DEFAULT NULL');
-// end 1.8.0
 
 // for all update
 function add_column($table, $name, $sql) {
@@ -38,6 +35,10 @@ function remove_column($table, $name) {
     @$query = $db->query('ALTER TABLE `'.$table.'` DROP COLUMN `'.$name.'`;');
   }
 }
+
+// 1.8.0
+add_column('users', 'uuid', 'varchar(255) DEFAULT NULL');
+// end 1.8.0
 
 @clearFolder(ROOT.'/app/tmp/cache/models/');
 @clearFolder(ROOT.'/app/tmp/cache/persistent/');
