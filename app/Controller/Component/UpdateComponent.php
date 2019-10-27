@@ -25,7 +25,7 @@ class UpdateComponent extends CakeObject
   );
   private $source = [
     'repo' => 'MineWebCMS',
-    'owner' => 'MineWeb',
+    'owner' => 'jimmyr57000',
     'versionFile' => 'VERSION'
   ];
 
