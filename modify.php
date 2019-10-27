@@ -15,6 +15,7 @@ function add_column($table, $name, $sql) {
   }
   if($execute) {
     @$query = $db->query('ALTER TABLE `'.$table.'` ADD `'.$name.'` '.$sql.';');
+	  $this->log($query);
   }
 
 	
