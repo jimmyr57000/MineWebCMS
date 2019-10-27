@@ -8,7 +8,7 @@ add_column('users', 'uuid', 'varchar(255) DEFAULT NULL');
 function add_column($table, $name, $sql) {
   //global $db;
 	$db = ConnectionManager::getDataSource('default');
-  $verif = $db->query('SHOW COLUMNS FROM '.$table.';');
+  /**$verif = $db->query('SHOW COLUMNS FROM '.$table.';');
   $execute = true;
   foreach ($verif as $k => $v) {
     if($v['COLUMNS']['Field'] == $name) {
@@ -18,7 +18,10 @@ function add_column($table, $name, $sql) {
   }
   if($execute) {
     @$query = $db->query('ALTER TABLE `'.$table.'` ADD `'.$name.'` '.$sql.';');
-  }
+  }**/
+	
+		$db->query('ALTER TABLE `'.$table.'` ADD COLUMN IF NOT EXISTS `'.$name.'` '.$sql.';');
+	
 }
 
 function remove_column($table, $name) {
